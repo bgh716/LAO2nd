@@ -166,11 +166,12 @@ def set_dir():
 def send():
     items = image(1440,2560,os.getcwd(),os.path.normpath(root.dirName))
     items.imageProcessing()
-    if(request.run(items.indexed_pic,items.crystal)==0):
+    res = request.run(items.indexed_pic,items.crystal)
+    if(res==0):
         res_label.configure(text="Success")
-    elif(request.run(items.indexed_pic,items.crystal)==1):
+    elif(res==1):
         res_label.configure(text="updated within 30 mins")
-    elif(request.run(items.indexed_pic,items.crystal)==2):
+    elif(res==2):
         res_label.configure(text="Server is offline")
 
 def callback(url):
